@@ -1,5 +1,6 @@
 
 
+let buttons = document.getElementsByClassName('press')
 
 //NUMBER BUTTONS
 let button9 = document.getElementById('no9')
@@ -16,6 +17,7 @@ let button0 = document.getElementById('no0')
 
 
 //FUNCTION BUTTONS 
+let calculate = document.getElementById('equal')
 let button10 = document.getElementById('clear')
 let button11 = document.getElementById('delete')
 let button12= document.getElementById('percent')
@@ -23,8 +25,14 @@ let button13= document.getElementById('multiply')
 let button14= document.getElementById('add')
 let button15= document.getElementById('minus')
 let button16= document.getElementById('divide')
-//InPUT
+let button17= document.getElementById('decimal')
+
+
+
+//InPUT Screen
 let input = document.getElementById('result')
+
+
 //NUMBER BUTTON
 button0.addEventListener('click', () => {
     input.value+= button0.value
@@ -57,47 +65,67 @@ button9.addEventListener('click', () => {
     input.value+= button9.value
 })
 
+
+
 //FUNCTIONS
 
-//CLEAR SCREEN
+//CLEAR SCREEN Button
 button10.addEventListener('click', () => {
     input.value= null
 })
-//DELETE
+//DELETE Button
 button11.addEventListener('click', () => {
     
 })
-//PERCENT
+//PERCENT Button
 button12.addEventListener('click', () => {
-    input.value= button12.value
+    input.value+= button12.value
 })
-//MULTIPLY
+//MULTIPLY Button
 button13.addEventListener('click', () => {
-    input.value= button13.value
+    input.value+= button13.value
 })
-//ADD
+//ADD Button
 button14.addEventListener('click', () => {
-    input.value= button14.value
+    input.value+= button14.value
 })
-//MINUS
+//MINUS Button
 button15.addEventListener('click', () => {
-    input.value= button15.value
+    input.value+= button15.value
 })
-//DIVIDE
+//DIVIDE Button
 button16.addEventListener('click', () => {
-    input.value= button16.value
+    input.value+= button16.value
 })
-
-
 //DELETE Button
 button11.addEventListener('click' , function(){
     input.value = result.value.slice(0, -1);
 });
 
+button17.addEventListener('click', () =>{
+    input.value += button17.value
+})
+
+
+//Equal To Button
+calculate.addEventListener('click', Calc)
+
 
 
 //FUNCTIONS FOR CALCULATOR
-let currentValue = input.value
+function Calc() {
+    input.value = eval(input.value)
+    try{
+        if(input.value ==NaN) throw "error" ;
+    }
+    catch(err){
+        input.innerText = 'error'
+    }
+    
+}
+
+
+
 
 
 
